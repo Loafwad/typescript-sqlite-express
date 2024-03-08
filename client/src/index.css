@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  background: #333;
+}
+
+.App {
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+/* Note: We only style core components here */
+/* And VERY tailwind inspired hah :D */
+.flex {
+  display: flex;
+}
+
+/* Button */
+.btn {
+  display: block;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 6px;
+  background: hsl(40, 60%, 50%);
+  box-shadow: 0 5px 0px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: hsl(40, 60%, 30%);
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+  background: hsl(200, 60%, 50%);
+}
+
+.btn-primary:hover {
+  background: hsl(200, 60%, 30%);
+}
+
+.btn-warning {
+  background: hsl(4, 60%, 50%);
+}
+
+.btn-warning:hover {
+  background: hsl(4, 60%, 30%);
+}
+
+/* Input */
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+/* Gap */
+.gap-1 {
+  gap: 0.5rem;
+}
+.gap-2 {
+  gap: 1rem;
+}
+.gap-3 {
+  gap: 1.5rem;
+}
+.gap-6 {
+  gap: 3rem;
+}
+.gap-12 {
+  gap: 6rem;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "catacloud-todo-app-server",
+  "version": "1.0.0",
+  "description": "todo app",
+  "main": "index.js",
+  "author": "Loafwad",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.11.25",
+    "@types/uuid": "^9.0.8",
+    "express": "^4.18.3",
+    "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2",
+    "uuid": "^9.0.1"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.2"
+  }
+}
