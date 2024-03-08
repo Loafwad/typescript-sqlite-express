@@ -56,11 +56,11 @@ export const updateTodo = async (
 };
 
 export const deleteTodo = async (
-  _id: string
+  id: string
 ): Promise<AxiosResponse<DataType>> => {
   try {
     const deletedTodo: AxiosResponse<DataType> = await axios.delete(
-      baseURL + `/delete-todo/${_id}`
+      baseURL + `/delete-todo/${id}`
     );
     return deletedTodo;
   } catch (error) {

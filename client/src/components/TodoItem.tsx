@@ -5,7 +5,7 @@ import { Button } from "./atoms/Button.tsx";
 type Props = {
   todo: ITodo;
   updateTodo?: (todo: ITodo) => void;
-  deleteTodo?: (_id: string) => void;
+  deleteTodo?: (id: string) => void;
 };
 
 const TodoItem: React.FC<Props> = ({ todo, updateTodo, deleteTodo }) => {
