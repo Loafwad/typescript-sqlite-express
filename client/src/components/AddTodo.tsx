@@ -1,14 +1,11 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { ITodo } from "../types";
-import { Button } from "./atoms/Button.tsx";
-import { Input } from "./atoms/Input.tsx";
+import { useTodo } from "../hooks/useTodo";
 
-type Props = {
-  saveTodo: (e: React.FormEvent, formData: ITodo) => void;
-};
-
-export const TodoForm: React.FC<Props> = ({ saveTodo }) => {
+export const TodoForm: React.FC = () => {
   const [formData, setFormData] = useState<ITodo | undefined>(undefined);
+
+  const { handleSaveTodo } = useTodo();
 
   const handleForm = useMemo(
     () => (e: React.FormEvent<HTMLInputElement>) => {
@@ -24,28 +21,45 @@ export const TodoForm: React.FC<Props> = ({ saveTodo }) => {
 
   const handleSave = (e: React.FormEvent, formData: ITodo) => {
     e.preventDefault();
-    saveTodo(e, formData);
+    handleSaveTodo(e, formData);
     setFormData(undefined);
     e.target.dispatchEvent(new Event("reset", { cancelable: false }));
   };
 
   return (
     <form
-      className="Form"
+      className="form flex-column flex gap-4"
       onSubmit={(e) => (formData ? handleSave(e, formData) : null)}
     >
-      <div>
-        <Input name="name" onChange={handleForm} type="text" id="name" />
-        <Input
-          name="description"
-          onChange={handleForm}
-          type="text"
-          id="description"
-        />
+      <div className="flex flex-column w-auto gap-2">
+        <div className="flex flex-column">
+          <label htmlFor="name">Name</label>
+          <input
+            className="rounded"
+            name="name"
+            onChange={handleForm}
+            type="text"
+            id="name"
+          />
+        </div>
+        <div className="flex flex-column">
+          <label htmlFor="description">Description</label>
+          <input
+            className="rounded"
+            name="description"
+            onChange={handleForm}
+            type="text"
+            id="description"
+          />
+        </div>
       </div>
-      <Button class="btn" type="submit" disabled={!formData ? true : false}>
+      <button
+        type="submit"
+        className="btn btn-secondary"
+        disabled={!formData ? true : false}
+      >
         Add Todo
-      </Button>
+      </button>
     </form>
   );
 };

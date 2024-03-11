@@ -35,10 +35,10 @@ class TodoModel {
 
   static update(todo: ITodo): Promise<ITodo> {
     return new Promise((resolve, reject) => {
-      const { id: _id, name, description, status } = todo;
+      const { id, name, description, status } = todo;
       db.run(
         "UPDATE todos SET name = ?, description = ?, status = ? WHERE id = ?",
-        [name, description, status, _id],
+        [name, description, status, id],
         function (err) {
           if (err) {
             reject(err);

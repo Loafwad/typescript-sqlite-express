@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { ITodo } from "../types";
+import { useState } from "react";
 
 const baseURL: string = "http://localhost:4000";
 
@@ -20,12 +21,12 @@ export const getTodos = async (): Promise<AxiosResponse<DataType>> => {
 };
 
 export const addTodo = async (
-  formData: ITodo
+  data: ITodo
 ): Promise<AxiosResponse<DataType>> => {
   try {
     const todo: Omit<ITodo, "id"> = {
-      name: formData.name,
-      description: formData.description,
+      name: data.name,
+      description: data.description,
       status: false,
     };
 
@@ -37,16 +38,16 @@ export const addTodo = async (
 };
 
 export const updateTodo = async (
-  formData: ITodo
+  data: ITodo
 ): Promise<AxiosResponse<DataType>> => {
   try {
     const todo: Pick<ITodo, "name" | "description" | "status"> = {
-      name: formData.name,
-      description: formData.description,
-      status: formData.status,
+      name: data.name,
+      description: data.description,
+      status: data.status,
     };
     const updatedTodo = await axios.put<DataType>(
-      baseURL + `/update-todo/${formData.id}`,
+      baseURL + `/update-todo/${data.id}`,
       todo
     );
     return updatedTodo;

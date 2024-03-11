@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+/*  Variable overrides first */
+$primary: hsl(200, 60%, 50%);
+$warning: hsl(4, 60%, 50%);
+$secondary: hsl(40, 60%, 50%);
+$enable-shadows: true;
+
+/* Then import Bootstrap */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  background: #333;
+}
+
+.App {
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.card {
+  background: hsl(0, 0%, 16%);
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-between;
+  border-radius: var(--bs-border-radius);
+}
